@@ -1,0 +1,96 @@
+*, ::before, ::after{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+$pink-light: #ff7eb4;
+$pink: #ff2581;
+
+body{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f2f2f2;
+}
+.icon {
+    fill: transparent;
+    stroke: black;
+    stroke-width: 20;
+    cursor: pointer;
+    position: relative;
+  
+    svg {
+      overflow: visible;
+      width: 10rem;
+    }
+  
+    path {
+      stroke-dashoffset: 0;
+      stroke-dasharray: 1550;
+      transform-origin: center;
+    }
+  
+    .heart-background {
+      position: absolute;
+      left: 0;
+      right: 0;
+      z-index: -1;
+      stroke: none;
+    }
+  
+    .heart-main:hover path {
+      animation: stroke-animation 1s ease-in-out forwards;
+    }
+  
+    // .heart-main:hover ~ .heart-background path {
+    //   animation: fade-animation 2s ease-in-out forwards;
+    // }
+  }
+
+@keyframes stroke-animation {
+    0% {
+        stroke: $pink;
+      stroke-dashoffset: 0;
+    }
+    30% {
+      stroke-dashoffset: 1550;
+    }
+    60% {
+      stroke-dashoffset: 3100;
+      fill: transparent;
+      transform: scale(1);
+    }
+    80% {
+      fill: $pink;
+      transform: scale(1.1);
+    }
+    90% {
+      transform: scale(1);
+    }
+    100% {
+        stroke: $pink; 
+      stroke-dashoffset: 3100;
+      fill: $pink;
+    }
+  }
+// @keyframes fade-animation {
+//     70% {
+//       fill: transparent;
+//       transform: scale(1);
+//     }
+//     80% {
+//       fill: $pink-light;;
+//       transform: scale(1.1);
+//       opacity: 1;
+//     }
+//     90% {
+//       opacity: 1;
+//     }
+//     100% {
+//       transform: scale(2.5);
+//       opacity: 0;
+//     }
+//   }
+  
